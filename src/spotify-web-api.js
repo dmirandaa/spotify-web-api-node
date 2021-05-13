@@ -970,6 +970,19 @@ SpotifyWebApi.prototype = {
       .execute(HttpManager.post, callback);
   },
 
+  addToQueueImplicit: function(uri, options, token, callback) {
+    return WebApiRequest.builder(token)
+      .withPath('/v1/me/player/queue')
+      .withQueryParameters(
+        {
+          uri: uri
+        },
+        options
+      )
+      .build()
+      .execute(HttpManager.post, callback);
+  },
+
 
   /** 
    * Get the Current User's Available Devices
